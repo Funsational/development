@@ -64,9 +64,6 @@
 [submodule "src/Sonata/AdminBundle"]
 	path = src/Sonata/AdminBundle
 	url = git@github.com:Funsational/AdminBundle.git
-[submodule "src/Sonata/NewsBundle"]
-	path = src/Sonata/NewsBundle
-	url = git://github.com/sonata-project/NewsBundle.git
 [submodule "src/Bundle/Steves/MongoAdminBundle"]
 	path = src/Bundle/Steves/MongoAdminBundle
 	url = git://github.com/steves/MongoAdminBundle.git
