@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+         <service id="funsational.security.authentication.listener.single_domain" class="Funsational\CommonBundle\DependencyInjection\Security\Factory\SingleDomainFactory" public="false">
+            <argument type="service" id="logger" on-invalid="null" />
+        </service>
+
+        <service id="funsational_common.security.authentication.listener.single_domain" class="Funsational\CommonBundle\Security\Firewall\SingleDomainListener" public="false" abstract="true">
+            <argument type="service" id="security.context" />
+            <argument type="service" id="security.authentication.manager" />
+            <argument />
+            <argument type="service" id="logger" on-invalid="null" />
+        </service>
+        
+        <service id="funsational_common.authentication.provider.cross_domain" class="Funsational\CommonBundle\Security\Authentication\CrossDomainAuthenticatedProvider" public="false">
+         
+        </service>
+    </services>
+</container>
