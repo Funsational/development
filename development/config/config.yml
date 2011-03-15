@@ -24,9 +24,7 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-                    
-# simple_blog:    
-    # db_driver: odm
+    
 security:
     providers:
         # fos_userbundle:
@@ -41,24 +39,24 @@ security:
     firewalls:
         profiler:
             pattern: /_profiler/.*
-        profiler:
+            form_login: true
+            anonymous: true
+        wdt:
             pattern: /_wdt/.*
+            form_login: true
+            anonymous: true
         main:
             pattern: /.*
             cas:
                 default_domain: development2.funsational.com
+            anonymous: true
             form_login:
                 use_forward: false
                 provider: main
-                use_forward: false
             logout: true
     acl:
         connection: default
-    access_control:
-        - { path: /admin/.*, role: ROLE_ADMIN }
-        - { path: /login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    
-          
+
 # fos_user:
 #     db_driver: mongodb
 #     provider_key: fos_userbundle
