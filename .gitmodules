@@ -64,3 +64,15 @@
 [submodule "src/Sonata/AdminBundle"]
 	path = src/Sonata/AdminBundle
 	url = git@github.com:Funsational/AdminBundle.git
+[submodule "src/Sonata/NewsBundle"]
+	path = src/Sonata/NewsBundle
+	url = git://github.com/sonata-project/NewsBundle.git
+[submodule "src/Bundle/Steves/MongoAdminBundle"]
+	path = src/Bundle/Steves/MongoAdminBundle
+	url = git://github.com/steves/MongoAdminBundle.git
+[submodule "src/Bundle/FirePHPBundle"]
+	path = src/Bundle/FirePHPBundle
+	url = git://github.com/madiedinro/FirePHPBundle.git
+[submodule "src/Funsational/CASBundle"]
+	path = src/Funsational/CASBundle
+	url = git@git.assembla.com:funsational-development.git
