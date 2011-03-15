@@ -5,16 +5,24 @@ _security_login:
 _security_check:
     pattern: /login_check
 
-blog:
-   resource: @SimpleBlogBundle/Resources/config/routing.xml
+# blog:
+#    resource: @SimpleBlogBundle/Resources/config/routing.xml
 
-admin:
-    resource: @SonataBaseApplicationBundle/Resources/config/routing/sonata_base_application.xml
-    prefix: /admin
+fos_user_security:
+   resource: @FOSUserBundle/Resources/config/routing/security.xml
 
-_sonata_base_appliation:
-    resource: .
-    type: sonata_base_application
+fos_user_user:
+   resource: @FOSUserBundle/Resources/config/routing/user.xml
+   prefix: /user
+
+
+# admin:
+#     resource: @SonataAdminBundle/Resources/config/routing/sonata_admin.xml
+#     prefix: /admin
+# 
+# _sonata_base_appliation:
+#     resource: .
+#     type: sonata_admin
 
     
 

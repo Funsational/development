@@ -18,16 +18,21 @@ class DevelopmentKernel extends Kernel
             new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\DoctrineMongoDBBundle\DoctrineMongoDBBundle(),
 
-//            new FOS\UserBundle\FOSUserBundle(),
-            new Sonata\BaseApplicationBundle\SonataBaseApplicationBundle(),
+//            new Sonata\AdminBundle\SonataAdminBundle(),
+//            new Sonata\NewsBundle\SonataNewsBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\BluePrintBundle\SonataBluePrintBundle(),
-            
+
+            // Common bundles
+            new Funsational\CASBundle\FunsationalCASBundle(),
+//            new FOS\UserBundle\FOSUserBundle(),
+
             // register your bundles
-            new Funsational\SimpleBlogBundle\SimpleBlogBundle(),
+//            new Funsational\SimpleBlogBundle\SimpleBlogBundle(),
+//            new Application\Sonata\NewsBundle\NewsBundle(),
         );
 
-        if ($this->isDebug()) {
+        if ($this->isDebug() || $this->environment == 'dev') {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }
 

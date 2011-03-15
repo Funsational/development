@@ -5,6 +5,8 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
+    'Application'                    => __DIR__.'/../src',
+    'Bundle'                   		 => __DIR__.'/../src',
     'Funsational'                    => __DIR__.'/../src',
     'Sonata'                         => __DIR__.'/../src',
     'Knplabs'                        => __DIR__.'/../src',
