@@ -73,3 +73,6 @@
 [submodule "src/FOS/UserBundle"]
 	path = src/FOS/UserBundle
 	url = git://github.com/FriendsOfSymfony/UserBundle.git
+[submodule "src/Funsational/JobQueueBundle"]
+	path = src/Funsational/JobQueueBundle
+	url = git@github.com:Funsational/JobQueueBundle.git
