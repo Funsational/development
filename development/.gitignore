@@ -1,3 +1,5 @@
 /cache/
 /logs/
 /report/
+/*.php.cache
+/.settings
