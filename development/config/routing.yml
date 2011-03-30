@@ -18,6 +18,9 @@ _security_login:
 _security_check:
     pattern: ^/login_check
 
+_cas:
+    resource: "@FunsationalCAS/Resources/config/routing/cas.xml"
+        
 # idea:
     # resource: FunsationalIdeaBundle/Resources/config/routing.xml
 

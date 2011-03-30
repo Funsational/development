@@ -68,9 +68,9 @@ security:
            
         main:
             pattern: ^/.*
-            security: false
             cas:
                 default_domain: development2.funsational.com
+            anonymous: ~
             
 
 # fos_user:
