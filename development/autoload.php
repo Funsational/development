@@ -24,7 +24,7 @@ $loader->registerNamespaces(array(
     'Sensio'                         => __DIR__.'/../vendor/bundles',
 
     'Assetic'                        => __DIR__.'/../vendor/assetic/src',
-    'Symfony'                        => __DIR__.'/../vendor/symfony/src',
+    'Symfony'                        => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Zend\\Log'                      => __DIR__.'/../vendor/zend-log',
 ));
 

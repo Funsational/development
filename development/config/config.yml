@@ -1,9 +1,12 @@
+imports:
+    - { resource: parameters.ini }
+    
 framework:
     charset:       UTF-8
     error_handler: nul
     csrf_protection:
         enabled: true
-        secret: xxxxxxxxxx
+        secret: %csrf_secret%
     translator: { fallback: en }
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
     validation:    { enabled: true, annotations: true }
@@ -15,7 +18,7 @@ framework:
         db_id_col: id
         db_data_col: data
         db_time_col: last_updated
-        default_locale: en
+        default_locale: %locale%
         name: pgaz
         lifetime:       3600
         auto_start:     true
@@ -33,29 +36,42 @@ security:
             users:
                 foo: { password: testing, roles: ROLE_USER }
                 admin: {password: admin, roles: ROLE_ADMIN }
+    providers:
+        in_memory:
+            users:
+                user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         
     factories:
         FunsationalCASFactory: %kernel.root_dir%/../src/Funsational/CASBundle/Resources/config/security_factories.xml
     firewalls:
         profiler:
-            pattern: /_profiler/.*
-            form_login: true
-            anonymous: true
+            pattern:  ^/_profiler
+            security: false
+            
         wdt:
-            pattern: /_wdt/.*
-            form_login: true
-            anonymous: true
+            pattern:  ^/_wdt
+            security: false
+           
+        login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/demo/secured/
+            form_login:
+                check_path: /demo/secured/login_check
+                login_path: /demo/secured/login
+            logout:
+                path:   /demo/secured/logout
+                target: /demo/
+           
         main:
-            pattern: /.*
+            pattern: ^/.*
+            security: false
             cas:
                 default_domain: development2.funsational.com
-            anonymous: true
-            form_login:
-                use_forward: false
-                provider: main
-            logout: true
-    acl:
-        connection: default
+            
 
 # fos_user:
 #     db_driver: mongodb
@@ -72,43 +88,39 @@ doctrine:
         default_connection: default
         connections:
             default:
-                driver:   pdo_mysql
-                dbname:   funsational_%kernel.environment%
-                user:     root
-                password: root
+                driver:   %database_driver%
+                host:     %database_host%
+                dbname:   %database_name%
+                user:     %database_user%
+                password: %database_password%
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_generate_proxy_classes: true
-        proxy_namespace: Proxies
-        proxy_dir: %kernel.cache_dir%/doctrine/orm/Proxies
         default_entity_manager: default
         entity_managers:
             default: 
                 mappings:
-                    SonataBluePrintBundle: ~
-                    #FunsationalCommonBundle: ~
-                    # SimpleBlogBundle: ~
-                    #SonataNewsBundle: ~
-                    #NewsBundle: ~
+                    AcmeDemo: ~
 
-doctrine_mongo_db:
-    auto_generate_proxy_classes: false
-    auto_generate_hydrator_classes: false
-    default_database: funsational_%kernel.environment%
-    document_managers:
-        default:
-            mappings:
-                # SimpleBlogBundle: ~
-                # FunsationalCommonBundle: ~
-                # FOSUserBundle: ~
-    connections:
-        default:
+# doctrine_mongo_db:
+#     auto_generate_proxy_classes: false
+#     auto_generate_hydrator_classes: false
+#     default_database: funsational_%kernel.environment%
+#     document_managers:
+#         default:
+#             mappings:
+#                 # SimpleBlogBundle: ~
+#                 # FunsationalCommonBundle: ~
+#                 # FOSUserBundle: ~
+#     connections:
+#         default:
                        
-## Swiftmailer Configuration
-#swiftmailer.config:
-#    transport:  smtp
-#    encryption: ssl
-#    auth_mode:  login
-#    host:       smtp.gmail.com
-#    username:   xxxxxxxx
-#    password:   xxxxxxxx
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+
+jms_security_extra:
+    secure_controllers:  true
+    secure_all_services: false

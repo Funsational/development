@@ -20,19 +20,19 @@ class DevelopmentKernel extends Kernel
 
 //            new Sonata\AdminBundle\SonataAdminBundle(),
 //            new Sonata\NewsBundle\SonataNewsBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
-            new Sonata\BluePrintBundle\SonataBluePrintBundle(),
+//            new Sonata\jQueryBundle\SonatajQueryBundle(),
+//            new Sonata\BluePrintBundle\SonataBluePrintBundle(),
 
             // Common bundles
             new Funsational\CASBundle\FunsationalCASBundle(),
-//            new FOS\UserBundle\FOSUserBundle(),
 
-            // register your bundles
-//            new Funsational\SimpleBlogBundle\SimpleBlogBundle(),
-//            new Application\Sonata\NewsBundle\NewsBundle(),
+            new Acme\DemoBundle\AcmeDemoBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
         );
 
         if ($this->isDebug() || $this->environment == 'dev') {
+            $bundles[] = new Symfony\Bundle\WebConfiguratorBundle\SymfonyWebConfiguratorBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }
 

@@ -1,9 +1,25 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: AcmeDemo:Welcome:index }
+
+_demo_secured:
+    resource: "@AcmeDemo/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemo/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+
 _security_login:
-    pattern: /login
-    defaults: { _controller: SecurityBundle:Security:login }
+    pattern: ^/login
+    defaults: { _controller: Security:Security:login }
 
 _security_check:
-    pattern: /login_check
+    pattern: ^/login_check
+
+# idea:
+    # resource: FunsationalIdeaBundle/Resources/config/routing.xml
 
 # blog:
 #    resource: @SimpleBlogBundle/Resources/config/routing.xml
