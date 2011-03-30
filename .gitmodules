@@ -76,3 +76,12 @@
 [submodule "src/Funsational/JobQueueBundle"]
 	path = src/Funsational/JobQueueBundle
 	url = git@github.com:Funsational/JobQueueBundle.git
+[submodule "vendor/bundles/JMS/SecurityExtraBundle"]
+	path = vendor/bundles/JMS/SecurityExtraBundle
+	url = git://github.com/schmittjoh/SecurityExtraBundle.git
+[submodule "vendor/bundles/Sensio/Bundle/FrameworkExtraBundle"]
+	path = vendor/bundles/Sensio/Bundle/FrameworkExtraBundle
+	url = git://github.com/sensio/SensioFrameworkExtraBundle.git
+[submodule "vendor/bundles/Symfony/Bundle/WebConfiguratorBundle"]
+	path = vendor/bundles/Symfony/Bundle/WebConfiguratorBundle
+	url = git://github.com/symfony/WebConfiguratorBundle.git
