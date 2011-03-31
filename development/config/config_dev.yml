@@ -5,14 +5,6 @@ framework:
     router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
     profiler: { only_exceptions: false }
 
-#doctrine_odm.mongodb:
-#    default_database: funsational_development_dev
-#    connections:
-#        default:
-#            options:
-#                connect: true
-#                persist: funsational_development_dev
-
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
