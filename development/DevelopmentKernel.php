@@ -8,15 +8,16 @@ class DevelopmentKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            // Core system bundles
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
-
-            // enable third-party bundles
-            new Symfony\Bundle\ZendBundle\ZendBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\DoctrineMongoDBBundle\DoctrineMongoDBBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
 //            new Sonata\AdminBundle\SonataAdminBundle(),
 //            new Sonata\NewsBundle\SonataNewsBundle(),
@@ -26,14 +27,19 @@ class DevelopmentKernel extends Kernel
             // Common bundles
             new Funsational\CASBundle\FunsationalCASBundle(),
 
+            // E-Commerce Bundles
+            new Funsational\ECommerce\OrderBundle\FunsationalECommerceOrderBundle(),
+
+            // Application E-Commerce bundles to tie all independent e-commerce bundles together
+            new Application\Funsational\ECommerce\OrderBundle\ApplicationFunsationalECommerceOrderBundle(),
+
+            // Demo bundles
             new Acme\DemoBundle\AcmeDemoBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
         );
 
         if ($this->isDebug() || $this->environment == 'dev') {
+        	$bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Symfony\Bundle\WebConfiguratorBundle\SymfonyWebConfiguratorBundle();
-            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }
 
         return $bundles;

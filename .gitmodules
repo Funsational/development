@@ -46,9 +46,6 @@
 [submodule "vendor/twig-extensions"]
 	path = vendor/twig-extensions
 	url = git://github.com/fabpot/Twig-extensions.git
-[submodule "vendor/zend-log/Zend/Log"]
-	path = vendor/zend-log/Zend/Log
-	url = git://github.com/symfony/zend-log.git
 [submodule "src/Sonata/jQueryBundle"]
 	path = src/Sonata/jQueryBundle
 	url = git@github.com:sonata-project/jQueryBundle.git
@@ -85,3 +82,6 @@
 [submodule "vendor/bundles/Symfony/Bundle/WebConfiguratorBundle"]
 	path = vendor/bundles/Symfony/Bundle/WebConfiguratorBundle
 	url = git://github.com/symfony/WebConfiguratorBundle.git
+[submodule "vendor/monolog"]
+	path = vendor/monolog
+	url = git://github.com/Seldaek/monolog.git

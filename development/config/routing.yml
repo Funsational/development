@@ -1,19 +1,22 @@
 _welcome:
     pattern:  /
-    defaults: { _controller: AcmeDemo:Welcome:index }
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
 
 _demo_secured:
-    resource: "@AcmeDemo/Controller/SecuredController.php"
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
     type:     annotation
 
 _demo:
-    resource: "@AcmeDemo/Controller/DemoController.php"
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
     type:     annotation
     prefix:   /demo
 
 _cas:
-    resource: "@FunsationalCAS/Resources/config/routing/cas.xml"
-        
+    resource: "@FunsationalCASBundle/Resources/config/routing/cas.xml"
+       
+orders:
+    resource: "@FunsationalECommerceOrderBundle/Resources/config/routing.yml"
+    
 # idea:
     # resource: FunsationalIdeaBundle/Resources/config/routing.xml
 

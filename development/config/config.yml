@@ -68,8 +68,8 @@ security:
            
         main:
             pattern: ^/.*
-            cas:
-                default_domain: development2.funsational.com
+                # cas:
+                    # default_domain: development2.funsational.com
             anonymous: ~
             
 
@@ -99,7 +99,7 @@ doctrine:
         entity_managers:
             default: 
                 mappings:
-                    AcmeDemo: ~
+                    AcmeDemoBundle: ~
 
 # doctrine_mongo_db:
 #     auto_generate_proxy_classes: false

@@ -25,7 +25,9 @@ $loader->registerNamespaces(array(
 
     'Assetic'                        => __DIR__.'/../vendor/assetic/src',
     'Symfony'                        => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
-    'Zend\\Log'                      => __DIR__.'/../vendor/zend-log',
+    'Monolog'                        => __DIR__.'/../vendor/monolog/src',
+
+
 ));
 
 $loader->registerPrefixes(array(
